@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rithika | Innovation & Execution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Kalam:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <style>
+        :root {
+            /* Functional Zest Palette */
+            --bg: #f4f4f5;         /* Off-White */
+            --text: #18181b;       /* Charcoal */
+            --accent: #bef264;     /* Electric Lime */
+            --card-glass: #ffffff;
+        }
+
+        * { box-sizing: border-box; cursor: none; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        #cursor {
+            width: 24px; height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        header {
+            height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 2rem;
+        }
+
+        .sketch-title {
+            font-family: 'Kalam', cursive;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            margin: 0; color: var(--text);
+        }
+
+        .sketch-title span {
+            display: inline-block;
+            position: relative;
+        }
+
+        .sketch-title span::after {
+            content: ""; position: absolute;
+            bottom: 5px; left: 0; width: 100%; height: 12px;
+            background: var(--accent);
+            z-index: -1; transform: rotate(-2deg);
+        }
+
+        .motto {
+            font-size: 1.4rem; max-width: 650px;
+            margin-top: 1.5rem; font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .portfolio-container { padding: 5vw; }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .card {
+            background: var(--card-glass);
+            border-radius: 16px; padding: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            border: 2px solid transparent;
+        }
+
+        .card:hover { border-color: var(--text); transform: translateY(-10px); }
+
+        /* Bold Uniform Placeholders */
+        .card-img {
+            width: 100%; height: 260px;
+            border-radius: 12px; margin-bottom: 1.5rem;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        .brand-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900; font-size: 2.2rem;
+            text-transform: uppercase; letter-spacing: -1px;
+            transform: translateZ(30px);
+            text-align: center; line-height: 1.1;
+        }
+
+        .card-body h3 { font-weight: 900; font-size: 1.5rem; margin: 0 0 0.5rem; }
+        .card-body p { font-size: 0.95rem; color: #52525b; margin-bottom: 1.5rem; min-height: 50px; }
+
+        .btn {
+            display: inline-block; padding: 12px 24px;
+            background: var(--text); color: var(--accent);
+            border-radius: 8px; font-weight: 900;
+            text-transform: uppercase; font-size: 0.8rem;
+            text-decoration: none; transition: 0.3s;
+        }
+
+        .btn:hover { background: var(--accent); color: var(--text); }
+
+        .cta-section { padding: 8rem 2rem; text-align: center; }
+        .cta-section h2 { font-family: 'Kalam', cursive; font-size: 2.5rem; margin-bottom: 2rem; }
+        
+        .contact-links { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .contact-item {
+            font-size: 1.2rem; font-weight: 900; color: var(--text);
+            text-decoration: none; border-bottom: 4px solid var(--accent);
+            transition: 0.3s;
+        }
+        .contact-item:hover { background: var(--accent); }
+
+        footer { padding: 3rem; text-align: center; font-size: 0.8rem; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+
+    <header>
+        <h1 class="sketch-title">Hi, I'm <span>Rithika</span></h1>
+        <p class="motto" id="motto">Most ideas are a great start—execution is what brings them to life. That’s where I can help.</p>
+    </header>
+
+    <div class="portfolio-container">
+        <div class="portfolio-grid">
+            
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #ef4444;"><div class="brand-logo" style="color: #ffffff;">Pocket<br>Gluca</div></div>
+                <div class="card-body">
+                    <h3>Pocketgluca</h3>
+                    <p>Glucose shots for type 1 diabetics.</p>
+                    <a href="https://pocketgluca.in/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #18181b;"><div class="brand-logo" style="color: #bef264;">Func Lab</div></div>
+                <div class="card-body">
+                    <h3>The Func Lab</h3>
+                    <p>Clean label plant & whey protein powders.</p>
+                    <a href="https://thefunclab.com/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #78350f;"><div class="brand-logo" style="color: #fef3c7;">Caffeinated</div></div>
+                <div class="card-body">
+                    <h3>Caffeinated</h3>
+                    <p>Hard boiled candy delivering coffee's caffeine.</p>
+                    <a href="https://www.caffeinated.co.in/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #3b82f6;"><div class="brand-logo" style="color: #ffffff;">BLNCD</div></div>
+                <div class="card-body">
+                    <h3>BLNCD</h3>
+                    <p>Sparkling electrolyte beverage for athletes.</p>
+                    <a href="#" class="btn" style="opacity: 0.5; pointer-events: none;">Coming Soon</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #fbcfe8;"><div class="brand-logo" style="color: #be185d;">Swichh</div></div>
+                <div class="card-body">
+                    <h3>Swichh</h3>
+                    <p>Prebiotic soda formulated for gut health.</p>
+                    <a href="https://www.instagram.com/p/DW_lUbpAemX/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #fef08a;"><div class="brand-logo" style="color: #1c1917;">Disstroy</div></div>
+                <div class="card-body">
+                    <h3>Disstroy</h3>
+                    <p>Electrolyte beverage infused with coconut water.</p>
+                    <a href="https://www.instagram.com/disstroyofficial/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #a5f3fc;"><div class="brand-logo" style="color: #083344;">Impact<br>Water</div></div>
+                <div class="card-body">
+                    <h3>Impact Water</h3>
+                    <p>Sustainable packaged drinking water.</p>
+                    <a href="https://www.impactwater.in/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #bfdbfe;"><div class="brand-logo" style="color: #1e3a8a;">Papel</div></div>
+                <div class="card-body">
+                    <h3>Papel</h3>
+                    <p>Alkaline water in sustainable packaging.</p>
+                    <a href="https://www.papelwater.in/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #fed7aa;"><div class="brand-logo" style="color: #9a3412;">Tori</div></div>
+                <div class="card-body">
+                    <h3>Tori</h3>
+                    <p>ACV based functional sparkling water.</p>
+                    <a href="https://tori.fit/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="card" data-tilt>
+                <div class="card-img" style="background: #f5f5f4;"><div class="brand-logo" style="color: #44403c;">Surati<br>Coco</div></div>
+                <div class="card-body">
+                    <h3>Surati Coco</h3>
+                    <p>Premium rich coconut milkshake.</p>
+                    <a href="https://www.instagram.com/surati.coco/" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <h2>If you’re serious about building something, let’s connect.</h2>
+        <div class="contact-links">
+            <a href="mailto:rithikashetty0601@gmail.com" class="contact-item">rithikashetty0601@gmail.com</a>
+            <a href="https://www.linkedin.com/in/rithika-shetty/" class="contact-item" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>&copy; 2026 Rithika | Innovation & Execution</footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Cursor
+        const cursor = document.querySelector('#cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX - 12, y: e.clientY - 12, duration: 0.1 });
+        });
+
+        // Entrance
+        gsap.from(".sketch-title", { opacity: 0, y: 30, duration: 1, ease: "power3.out" });
+        gsap.from(".motto", { opacity: 0, y: 20, duration: 1, delay: 0.3, ease: "power3.out" });
+
+        // Scroll Cards
+        gsap.utils.toArray(".card").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: "top 90%" },
+                opacity: 0, y: 50, duration: 0.6, delay: (i % 3) * 0.15
+            });
+        });
+
+        VanillaTilt.init(document.querySelectorAll(".card"), { max: 5, speed: 400 });
+    </script>
+</body>
+</html>
